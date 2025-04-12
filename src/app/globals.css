@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.hoverEffect {
+  @apply transition-all duration-300;
+}
+
+.background-blur{
+  /* filter: blur(4px); */
+  backdrop-filter: blur(10px);
+}
