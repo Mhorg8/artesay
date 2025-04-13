@@ -1,48 +1,45 @@
 import Card from "@/components/Card";
+import CardList from "@/components/CardList";
 import Hero from "@/components/Hero";
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import { LuArrowBigRight, LuArrowBigRightDash } from "react-icons/lu";
+import { offers } from "@/constants";
+import Image from "next/image";
 
 const HomePage = () => {
   return (
     <div className="p">
       <Hero />
+      <CardList />
 
-      <div className="w-full h-full md:h-[100dvh]  max-w-[96%] mx-auto  ">
-        <div className="flex items-center justify-between w-full my-20 ">
-          <h4 className="text-3xl capitalize">
-            <span className="font-bold ">100% </span>handmade art. <br />
-            Created by passionate artists.
-          </h4>
+      <div className="w-full max-w-[96%] bg-green-400 mx-auto h-[100dvh] relative ">
+        <Image
+          src="/banner.jpg"
+          alt=""
+          fill
+          sizes="fill"
+          className="object-cover rounded-xl"
+        />
 
-          <div className="text-5xl leading-12 font-extrabold tracking-tighter relative">
-            <div className="mb-1">
-              <h2 className=" text-white z-50 bg-purple-700 w-fit p-2 rounded-md">
-                CURATED ART
-              </h2>
-              <div className="absolute border bg-zinc-100/70 w-[300px] h-14 border-zinc-700 top-4 rounded-md -left-2 -z-10" />
-            </div>
-
-            <h2>
-              FOR A HOME THAT <br /> SPEAKS YOUR STYLE
-            </h2>
-          </div>
-
-          <div className="flex items-center justify-center gap-2">
-            <button className="flex items-center justify-center p-6 cursor-pointer rounded-full border border-zinc-400">
-              <FaLongArrowAltLeft />
-            </button>
-            <button className="flex items-center justify-center p-6 cursor-pointer rounded-full border border-zinc-400">
-              <FaLongArrowAltRight />
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5 h-full">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        <div className="absolute bottom-5 left-0 w-full flex flex-nowrap items-center gap-3">
+          {offers.map((offer) => {
+            return (
+              <div
+                key={offer.id}
+                className="p-1 flex-1 bg-red-200/10 background-blur  h-full flex items-center rounded-full justify-between "
+              >
+                <h4 className="mx-4 text-white  text-xl font-bold  ">
+                  {offer.title}
+                </h4>
+                <div
+                  style={{ backgroundColor: offer.bgColor }}
+                  className=" w-[70px] h-[70px] rounded-full  flex items-center justify-center"
+                >
+                  <p className="text-white text-base font-bold">
+                    {offer.icon ? <offer.icon size={22} /> : null}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
