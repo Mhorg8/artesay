@@ -4,7 +4,7 @@
   @apply transition-all duration-300;
 }
 
-.background-blur{
+.background-blur {
   /* filter: blur(4px); */
   backdrop-filter: blur(10px);
 }

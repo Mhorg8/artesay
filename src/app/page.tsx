@@ -1,36 +1,49 @@
-import Image from "next/image";
-import { LuDollarSign, LuFlower } from "react-icons/lu";
-import { FaBrush } from "react-icons/fa6";
+import Card from "@/components/Card";
+import Hero from "@/components/Hero";
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { LuArrowBigRight, LuArrowBigRightDash } from "react-icons/lu";
 
 const HomePage = () => {
   return (
-    <div className="px-5 h-[100dvh] w-full overflow-hidden py-28 bg-zinc-200 relative">
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src="/hero.jpg"
-          fill
-          sizes="fill"
-          alt="hero-image"
-          className="object-cover object-center"
-        />
-      </div>
+    <div className="p">
+      <Hero />
 
-      <div className="absolute top-[20%] right-[10%]">
-        <div className="flex w-fit items-center gap-1 background-blur p-1.5 bg-white/30 rounded-full">
-          <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white">
-            <FaBrush size={20} className="text-orange-500" />
+      <div className="w-full h-full md:h-[100dvh]  max-w-[96%] mx-auto  ">
+        <div className="flex items-center justify-between w-full my-20 ">
+          <h4 className="text-3xl capitalize">
+            <span className="font-bold ">100% </span>handmade art. <br />
+            Created by passionate artists.
+          </h4>
+
+          <div className="text-5xl leading-12 font-extrabold tracking-tighter relative">
+            <div className="mb-1">
+              <h2 className=" text-white z-50 bg-purple-700 w-fit p-2 rounded-md">
+                CURATED ART
+              </h2>
+              <div className="absolute border bg-zinc-100/70 w-[300px] h-14 border-zinc-700 top-4 rounded-md -left-2 -z-10" />
+            </div>
+
+            <h2>
+              FOR A HOME THAT <br /> SPEAKS YOUR STYLE
+            </h2>
           </div>
-          <div className="w-14 h-14 rounded-full flex items-center justify-center bg-orange-500 -ml-3">
-            <LuDollarSign size={20} color="white" fontWeight={800} />
-          </div>
-          <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white -ml-3">
-            <LuFlower className="text-orange-500" size={20} />
+
+          <div className="flex items-center justify-center gap-2">
+            <button className="flex items-center justify-center p-6 cursor-pointer rounded-full border border-zinc-400">
+              <FaLongArrowAltLeft />
+            </button>
+            <button className="flex items-center justify-center p-6 cursor-pointer rounded-full border border-zinc-400">
+              <FaLongArrowAltRight />
+            </button>
           </div>
         </div>
-        <h3 className="text-white text-2xl font-medium ml-2 mt-2">
-          SAY HELLO TO <br />
-          NEW ACCESSORIIES <br /> FOR YOUR ROOM.
-        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5 h-full">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </div>
     </div>
   );
