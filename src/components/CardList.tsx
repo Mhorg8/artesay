@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const CardList = () => {
   return (
-    <div className="w-full h-full md:h-[100dvh]  max-w-[96%] mx-auto  ">
+    <div className="w-full min-h-[100dvh] max-w-[96%] mx-auto ">
       <div className="flex items-center justify-between w-full my-20 ">
         <h4 className="text-3xl capitalize">
           <span className="font-bold ">100% </span>handmade art. <br />
@@ -15,7 +15,7 @@ const CardList = () => {
             <h2 className=" text-white z-50 bg-red-400 w-fit p-2 rounded-md">
               CURATED ART
             </h2>
-            <div className="absolute border bg-zinc-100/70 w-[300px] h-14 border-zinc-700 top-4 rounded-md -left-2 -z-10" />
+            <div className="absolute border bg-zinc-100/70 w-[330px] h-14 border-zinc-700 top-4 rounded-md -left-2 -z-10" />
           </div>
 
           <h2>

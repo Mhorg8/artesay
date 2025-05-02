@@ -17,7 +17,7 @@ export const navLinks = [
   { id: 4, path: "/login", title: "Login" },
 ];
 
-export const offers = [
+export const features = [
   {
     id: 1,
     title: "New year off",
@@ -33,7 +33,7 @@ export const offers = [
   },
   {
     id: 13,
-    title: "safe payment",
+    title: "safe",
     icon: MdLockOutline,
     bgColor: "oklch(85.2% 0.199 91.936)",
   },

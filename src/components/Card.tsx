@@ -4,7 +4,7 @@ import React from "react";
 import { easeIn, motion } from "framer-motion";
 const Card = () => {
   return (
-    <div className="w-full h-[550px]">
+    <div className="w-full h-[400px]">
       <div className="flex-1 h-full border  border-black/20 shadow-xl rounded-xl w-full relative  overflow-hidden cursor-pointer">
         <motion.div
           initial={{ scale: 1 }}
