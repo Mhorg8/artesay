@@ -43,16 +43,16 @@ const Features = () => {
             ref={featureRef}
             className="p-1 flex-1 bg-red-200/10 backdrop-blur-md h-full flex items-center rounded-full justify-between"
           >
-            <h4 className="mx-4 capitalize text-white text-lg font-bold">
+            <h4  className={`mx-4 capitalize ${feature.id === isHoverd ? 'text-black' : 'text-white'}  text-lg font-bold`}>
               {feature.title}
             </h4>
             <motion.div
-            onMouseOver={() => handleMouseOver(feature.id)}
+            onMouseEnter={() => handleMouseOver(feature.id)}
             onMouseLeave={() =>handleMouseLeave(feature.id)}
               whileHover={{ x: -(featureWidth - 80) }}
-              transition={{duration : 0.6}}
+              transition={{duration : 0.6 , delay : 0.2}}
               style={{ backgroundColor: feature.bgColor }}
-              className="w-[70px] h-[70px] rounded-full flex items-center justify-center"
+              className="w-[70px] h-[70px] rounded-full flex items-center justify-center cursor-pointer"
             >
               <div className="text-white text-base font-bold">
                 {feature.icon && <feature.icon size={24} />}
