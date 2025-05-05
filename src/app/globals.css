@@ -12,6 +12,12 @@
   backdrop-filter: blur(10px);
 }
 
+@layer components {
+  .login-option {
+    @apply flex items-center gap-2 justify-center bg-white px-4 py-2 rounded-lg flex-1 hover:bg-orange-400 hover:text-white cursor-pointer
+  }
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

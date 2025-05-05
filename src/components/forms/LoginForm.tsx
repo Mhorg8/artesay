@@ -1,112 +1,104 @@
 "use client";
-import React from "react";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../ui/form";
-import { Input } from "@/components/ui/input";
+import React, { FormEvent, useState } from "react";
+import z from "zod";
+import CustomInput from "../CustomInput";
 import { Button } from "../ui/button";
 
-const formSchema = z.object({
-  email: z.string().email(),
-  username: z
-    .string()
-    .min(6, { message: "username must be at least 2 characters" })
-    .max(16, { message: "username must be at 16 characters" }),
-  password: z
-    .string()
-    .min(8, { message: "password must be at least 8 characters" })
-    .max(16, { message: "password must be at 16 characters" })
-    .regex(/[a-zA-Z]/, "password shuold have one letter"),
-});
+import { FaApple, FaGoogle } from "react-icons/fa";
+import { handleLoginUser } from "@/action";
+import { useRouter } from "next/navigation";
 
+interface Error {
+  email?: string | null;
+  username?: string | null;
+  password?: string | null;
+}
 const LoginForm = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      username: "",
-      password: "",
-    },
-  });
+  const [errors, setErrors] = useState<Error>({});
+  const router = useRouter();
+  
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    try {
+      const formData = new FormData(e.currentTarget);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      if (data.errors) {
+        setErrors(data.errors);
+      } else {
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  const obj: {} = {
+    username: ["Username should be at least 6 characters"],
+    password: [
+      "Password is required",
+      "Password should be at least 8 characters",
+    ],
+  };
+
   return (
-    <Form
-      {...form}
-     
-    >
-        <div  className="flex-1 px-4 flex flex-col justify-start h-full py-5 border-l border-zinc-400 bg-zinc-200/50 background-blur rounded-e-xl">
+    <div className="flex-1 bg-zinc-200 h-full rounded-e-xl border-l border-l-zinc-400/40 flex flex-col items-center justify-start  w-full py-5 px-5">
+      <h2 className="text-2xl font-semibold">Welcome back!</h2>
+      <p className="text-zinc-800">Login in for access to all features</p>
 
-      
-      <div className="my-5">
-        <h2 className="text-3xl font-bold text-center">Welcome Back</h2>
-        <p className="text-gray-400">Login for get access to all features</p>
-      </div>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-        <FormField
+      <form className="w-full space-y-4" onSubmit={handleSubmit}>
+        <CustomInput
+          type="email"
           name="email"
-          control={form.control}
-          render={({ field }) => {
-            return (
-              <FormItem >
-                <FormLabel className="capitalize">email</FormLabel>
-                <FormControl>
-                  <Input className="bg-white" placeholder="example@gmail.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            );
-          }}
-        ></FormField>
-        <FormField
+          placeholder="example.com"
+          label="Email"
+          error={errors.email ? errors.email : null}
+        />
+        <CustomInput
+          type="text"
           name="username"
-          control={form.control}
-          render={({ field }) => {
-            return (
-              <FormItem>
-                <FormLabel className="capitalize">Username</FormLabel>
-                <FormControl>
-                  <Input className="bg-white" placeholder="Jon Doe" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            );
-          }}
-        ></FormField>
-
-        <FormField
+          placeholder="Jon Doe"
+          label="Username"
+          error={errors.username}
+        />
+        <CustomInput
+          type="text"
           name="password"
-          control={form.control}
-          render={({ field }) => {
-            return (
-              <FormItem>
-                <FormLabel className="capitalize">password</FormLabel>
-                <FormControl>
-                  <Input className="bg-white" placeholder="*********" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            );
-          }}
-        ></FormField>
-        <Button className="w-full cursor-pointer" variant={"default"} color="">
-          Login
+          placeholder="******"
+          label="Password"
+          error={errors.password}
+        />
+
+        <div className="flex items-center justify-center gap-5 ">
+          <div className="login-option hoverEffect">
+            <p>Google</p>
+            <FaGoogle size={20} />
+          </div>
+          <div className="login-option hoverEffect">
+            <p>Apple</p>
+            <FaApple size={20} />
+          </div>
+        </div>
+        {errors && (
+          <div className="">
+            {Object.entries(errors).map(([key, error]) => {
+              return <p className="text-sm text-red-400">{error as string}</p>;
+            })}
+          </div>
+        )}
+        <Button
+          className="w-full bg-red-400 hover:bg-red-500 cursor-pointer uppercase  hoverEffect"
+          type="submit"
+          size={"lg"}
+        >
+          Submit
         </Button>
       </form>
-      </div>
-    </Form>
+    </div>
   );
 };
 
