@@ -1,7 +1,6 @@
 import LoginForm from '@/components/forms/LoginForm'
 import Image from 'next/image'
 import React from 'react'
-import loginFormImage from '../../../public/poster-3.webp'
 
 const LoginPage = () => {
   return (
