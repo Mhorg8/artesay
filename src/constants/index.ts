@@ -14,7 +14,7 @@ export const navLinks = [
     title: "posters",
   },
   { id: 3, path: "/albums", title: "albums" },
-  { id: 4, path: "/login", title: "Login" },
+  
 ];
 
 export const features = [

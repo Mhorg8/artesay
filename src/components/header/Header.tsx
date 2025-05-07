@@ -2,8 +2,10 @@ import Link from "next/link";
 import React from "react";
 import Navmenu from "./Navmenu";
 import { FiShoppingBag } from "react-icons/fi";
+import { auth } from "@/app/auth";
 
-const Header = () => {
+const Header = async () => {
+  
   return (
     <div className="fixed top-5 left-3 px-3 py-3 rounded-md bg-black/20 right-3 w-[96%] mx-auto shadow-md flex items-center justify-between z-50 background-blur">
       <Navmenu />
