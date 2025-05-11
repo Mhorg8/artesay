@@ -2,9 +2,10 @@
 import Image from "next/image";
 import React from "react";
 import { easeIn, motion } from "framer-motion";
+import Link from "next/link";
 const Card = () => {
   return (
-    <div className="w-full h-[400px]">
+    <Link href={'/product/3'} className="w-full h-[400px]">
       <div className="flex-1 h-full border  border-black/20 shadow-xl rounded-xl w-full relative  overflow-hidden cursor-pointer">
         <motion.div
           initial={{ scale: 1 }}
@@ -24,7 +25,7 @@ const Card = () => {
         <p className="text-2xl tracking-tight font-bold">TRAVIS SCOTT</p>
         <p className="text-2xl font-bold text-red-400">$19</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

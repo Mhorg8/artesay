@@ -1,9 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import loginFormImage from "../../../public/poster.webp";
-import CustomInput from "@/components/CustomInput";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import RegisterForm from "@/components/forms/RegisterForm";
 
 const RegisterPage = () => {
