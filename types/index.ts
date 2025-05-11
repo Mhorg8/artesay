@@ -9,3 +9,15 @@ export interface RegisterUserCredential {
   password: string;
   username: string;
 }
+
+export interface Size {
+  id: number;
+  value: string;
+  name: string;
+}
+
+export interface Shipping {
+  id: number;
+  value: string;
+  name: string;
+}

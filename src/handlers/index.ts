@@ -1,7 +1,5 @@
 import { DefaultResponse, RegisterUserCredential } from "../../types";
 
-
-
 export async function RegisterUser(
   request: RegisterUserCredential
 ): Promise<DefaultResponse> {

@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 import LoginOptions from "./LoginOptions";
 import { useMutation } from "@tanstack/react-query";
 import { RegisterUser } from "@/handlers";
-import { RegisterUserCredential } from "../../../types";
 
 const RegisterForm = () => {
   const mutation = useMutation({
