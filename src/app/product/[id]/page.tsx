@@ -5,10 +5,11 @@ import { Label } from "@/components/ui/label";
 import { shippingOptions, sizeOptions } from "@/constants";
 import Image from "next/image";
 import React from "react";
-import { LuStar, LuTruck } from "react-icons/lu";
+import { LuTruck } from "react-icons/lu";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import Rating from "@/components/Rating";
+import { AiOutlineLike, AiTwotoneDislike } from "react-icons/ai";
 
 const SingleProductPage = () => {
   return (
@@ -19,7 +20,7 @@ const SingleProductPage = () => {
             <h2 className="text-5xl font-bold ">
               BEST POSTER HAVE SEEN IN YOUR LIFE
             </h2>
-           <Rating />
+            <Rating />
           </div>
           <div className="w-full  md:w-[80%]">
             <p className="text-base font-medium text-gray-600">Subtitle</p>
@@ -55,7 +56,6 @@ const SingleProductPage = () => {
               <Checkbox />
               <Label>I agree all roles.</Label>
             </div>
-           
 
             <div className="flex flex-wrap items-center gap-4 *:border-r-2  *:md:border-r-0 *:md:border-r-zinc-400 *:last:border-r-0 mt-5">
               <div className="flex items-center gap-2 px-3 py-2 text-sm flex-1">
@@ -72,7 +72,7 @@ const SingleProductPage = () => {
               </div>
             </div>
 
-             <Button className="w-full py-6 text-white mt-4" variant={"default"}>
+            <Button className="w-full py-6 text-white mt-4" variant={"default"}>
               Purchase
             </Button>
           </div>
@@ -89,6 +89,32 @@ const SingleProductPage = () => {
               className="object-cover rounded-xl"
             />
           </div>
+        </div>
+      </div>
+
+      {/* commends */}
+      <div className=" mt-16 w-full p-3">
+        <h3 className="text-2xl font-semibold">Commends</h3>
+        <div className="w-full grid grid-cols-4">
+          <div className=" w-full col-span-2 pr-4 line-clamp-3">
+            <h4 className="text-black font-semibold">Mohammad</h4>
+            <p className="text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+              reiciendis facere nihil beatae. Rerum atque voluptas facere,
+              expedita molestias, excepturi omnis iusto, rem ipsa nam quasi
+              saepe odio. Adipisci, magnam!
+            </p>
+          </div>
+          <div className="">
+            <button>
+              <AiOutlineLike />
+            </button>
+            <button>
+              <AiTwotoneDislike />
+            </button>
+          </div>
+
+          <div className="">2025/5/20</div>
         </div>
       </div>
     </div>
