@@ -10,6 +10,7 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import Rating from "@/components/Rating";
 import { AiOutlineLike, AiTwotoneDislike } from "react-icons/ai";
+import ProductCommend from "@/components/Product/ProductCommend";
 
 const SingleProductPage = () => {
   return (
@@ -94,28 +95,8 @@ const SingleProductPage = () => {
 
       {/* commends */}
       <div className=" mt-16 w-full p-3">
-        <h3 className="text-2xl font-semibold">Commends</h3>
-        <div className="w-full grid grid-cols-4">
-          <div className=" w-full col-span-2 pr-4 line-clamp-3">
-            <h4 className="text-black font-semibold">Mohammad</h4>
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-              reiciendis facere nihil beatae. Rerum atque voluptas facere,
-              expedita molestias, excepturi omnis iusto, rem ipsa nam quasi
-              saepe odio. Adipisci, magnam!
-            </p>
-          </div>
-          <div className="">
-            <button>
-              <AiOutlineLike />
-            </button>
-            <button>
-              <AiTwotoneDislike />
-            </button>
-          </div>
-
-          <div className="">2025/5/20</div>
-        </div>
+        <h3 className="text-2xl font-semibold mb-10">Commends</h3>
+        <ProductCommend />
       </div>
     </div>
   );

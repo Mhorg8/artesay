@@ -16,7 +16,9 @@ const Rating = () => {
           onClick={() => handleRatting(i)}
           key={i}
           size={18}
-          className={`${rate >= i && "fill-yellow-500"} text-yellow-500`}
+          className={`${
+            rate >= i && "fill-yellow-500"
+          } text-yellow-500 cursor-pointer`}
         />
       ))}
     </div>
