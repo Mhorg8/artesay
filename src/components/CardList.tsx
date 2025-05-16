@@ -36,7 +36,7 @@ const CardList = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-y-14 gap-5 h-full">
         {tempCards.map((card) => (
-          <Card card={card} key={card.id} />
+          <Card card={card} key={card.id} type="secondary" />
         ))}
       </div>
     </div>

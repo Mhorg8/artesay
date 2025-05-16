@@ -6,7 +6,7 @@ import {
 import { GiCommercialAirplane } from "react-icons/gi";
 import { BsBox } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
-import { CardType, Shipping, Size } from "../../types";
+import { CardType, Shipping, Size } from "../types";
 
 export const navLinks = [
   {

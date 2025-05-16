@@ -1,4 +1,4 @@
-import { DefaultResponse, RegisterUserCredential } from "../../types";
+import { DefaultResponse, RegisterUserCredential } from "../types";
 
 export async function RegisterUser(
   request: RegisterUserCredential
