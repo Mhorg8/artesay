@@ -6,7 +6,7 @@ import {
 import { GiCommercialAirplane } from "react-icons/gi";
 import { BsBox } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
-import { Shipping, Size } from "../../types";
+import { CardType, Shipping, Size } from "../../types";
 
 export const navLinks = [
   {
@@ -51,4 +51,11 @@ export const shippingOptions: Shipping[] = [
   { id: 1, value: "post", name: "post" },
   { id: 2, value: "tipax", name: "tipax" },
   { id: 3, value: "express", name: "express" },
+];
+
+export const tempCards: CardType[] = [
+  { id: 1, name: "Travis scott", image: "/poster.webp", price: 200 },
+  { id: 2, name: "Travis scott2", image: "/poster-2.webp", price: 100 },
+  { id: 3, name: "Travis scott3", image: "/poster-3.webp", price: 300 },
+  { id: 4, name: "Travis scott4", image: "/banner.jpg", price: 500 },
 ];

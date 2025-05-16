@@ -21,3 +21,10 @@ export interface Shipping {
   value: string;
   name: string;
 }
+
+export interface CardType {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}

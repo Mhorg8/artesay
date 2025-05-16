@@ -1,5 +1,6 @@
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import Card from "./Card";
+import { tempCards } from "@/constants";
 
 const CardList = () => {
   return (
@@ -34,10 +35,9 @@ const CardList = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-y-14 gap-5 h-full">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {tempCards.map((card) => (
+          <Card card={card} key={card.id} />
+        ))}
       </div>
     </div>
   );

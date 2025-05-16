@@ -9,7 +9,6 @@ import { LuTruck } from "react-icons/lu";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import Rating from "@/components/Rating";
-import { AiOutlineLike, AiTwotoneDislike } from "react-icons/ai";
 import ProductCommend from "@/components/Product/ProductCommend";
 
 const SingleProductPage = () => {
